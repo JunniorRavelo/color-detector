@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detección de Colores</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a; /* Color de fondo oscuro */
+            color: #ffffff; /* Color de texto blanco */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #video-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #video {
+            border: 2px solid #333; /* Borde más oscuro */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Sombra más clara */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Detección de Colores en Tiempo Real</h1>
+        <div id="video-container">
+            <img id="video" src="{{ url_for('video_feed') }}" width="640" height="480">
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
