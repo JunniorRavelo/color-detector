@@ -14,8 +14,8 @@ Este proyecto, creado por Jr Santiago Ravelo, utiliza Flask y OpenCV para detect
 1. **Clona el repositorio:**
 
     ```sh
-    git clone <URL_DEL_REPOSITORIO>
-    cd <NOMBRE_DEL_REPOSITORIO>
+    git clone <https://github.com/JunniorRavelo/color-detector.git>
+    cd <color-detector>
     ```
 
 2. **Crea un entorno virtual:**
@@ -72,16 +72,5 @@ Este proyecto, creado por Jr Santiago Ravelo, utiliza Flask y OpenCV para detect
 
 ### Versión de Escritorio
 
-Para la versión de escritorio, puedes adaptar el código para usar OpenCV y mostrar la salida directamente en una ventana usando las funciones de OpenCV.
+Para la versión de escritorio, se encuentra en desktop\desktop.py la cual no usa flask.
 
-## Estructura del Proyecto
-
-```plaintext
-├── app.py
-├── templates
-│   └── index.html
-├── static
-│   └── js
-│       └── script.js
-├── requirements.txt
-└── README.md
