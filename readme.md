@@ -1,6 +1,11 @@
 # Detección de Colores en Tiempo Real
 
-Este proyecto, creado por Jr Santiago Ravelo, utiliza Flask y OpenCV para detectar colores en tiempo real a través de la cámara web. El software detecta varios colores en un flujo de video en tiempo real y dibuja rectángulos alrededor de los objetos detectados, etiquetándolos con su color correspondiente.
+Este proyecto, creado por Jr Santiago Ravelo, utiliza Flask y OpenCV para detectar colores en tiempo real a través de la cámara web. El software detecta varios colores en un flujo de video y dibuja rectángulos alrededor de los objetos detectados, etiquetándolos con su color correspondiente.
+
+## Nota sobre el idioma - ramas
+
+- 'main' : Inglés
+- 'spanish' : Español
 
 ## Requisitos
 
@@ -11,20 +16,20 @@ Este proyecto, creado por Jr Santiago Ravelo, utiliza Flask y OpenCV para detect
 
 ## Instalación
 
-1. **Clona el repositorio:**
+1. **Clonar el repositorio:**
 
     ```sh
-    git clone <URL_DEL_REPOSITORIO>
-    cd <NOMBRE_DEL_REPOSITORIO>
+    git clone https://github.com/JunniorRavelo/color-detector.git
+    cd color-detector
     ```
 
-2. **Crea un entorno virtual:**
+2. **Crear un entorno virtual:**
 
     ```sh
     python -m venv env_colors
     ```
 
-3. **Activa el entorno virtual:**
+3. **Activar el entorno virtual:**
 
     - En Windows:
         ```sh
@@ -35,7 +40,7 @@ Este proyecto, creado por Jr Santiago Ravelo, utiliza Flask y OpenCV para detect
         source env_colors/bin/activate
         ```
 
-4. **Instala las dependencias:**
+4. **Instalar las dependencias:**
 
     Asegúrate de tener un archivo `requirements.txt` con las siguientes dependencias:
 
@@ -62,26 +67,14 @@ Este proyecto, creado por Jr Santiago Ravelo, utiliza Flask y OpenCV para detect
 
 ### Versión Web
 
-1. **Ejecuta la aplicación Flask:**
+1. **Ejecutar la aplicación Flask:**
 
     ```sh
     python app.py
     ```
 
-2. **Abre tu navegador web y ve a `http://0.0.0.0:5000` para ver la detección de colores en tiempo real.**
+2. **Abrir tu navegador web y visitar `http://0.0.0.0:5000` para ver la detección de colores en tiempo real.**
 
 ### Versión de Escritorio
 
-Para la versión de escritorio, puedes adaptar el código para usar OpenCV y mostrar la salida directamente en una ventana usando las funciones de OpenCV.
-
-## Estructura del Proyecto
-
-```plaintext
-├── app.py
-├── templates
-│   └── index.html
-├── static
-│   └── js
-│       └── script.js
-├── requirements.txt
-└── README.md
+Para la versión de escritorio, está en desktop\desktop.py, la cual no utiliza Flask.

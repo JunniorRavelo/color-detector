@@ -17,7 +17,7 @@ colores = {
     #"Negro": ([0, 0, 0], [180, 255, 30])              
 }
 
-
+# Rangos de colores adicionales
 colores_alto = {
     "Rojo": ([0, 100, 100], [10, 255, 255]),
     "Rojo oscuro": ([0, 50, 50], [10, 255, 255]),
@@ -77,42 +77,45 @@ colores_alto = {
     "Negro pálido": ([0, 0, 0], [180, 255, 150]),
 }
 
-
+# Función para detectar colores en el frame
 def detectar_color(frame):
-    hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+    hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)  # Convertir frame de BGR a HSV
     for color, (lower, upper) in colores.items():
-        lower = np.array(lower, dtype=np.uint8)
-        upper = np.array(upper, dtype=np.uint8)
-        mask = cv2.inRange(hsv, lower, upper)
-        contours, _ = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+        lower = np.array(lower, dtype=np.uint8)  # Límite inferior del color
+        upper = np.array(upper, dtype=np.uint8)  # Límite superior del color
+        mask = cv2.inRange(hsv, lower, upper)    # Crear máscara para el color
+        contours, _ = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)  # Encontrar contornos
         for contour in contours:
             area = cv2.contourArea(contour)
             if area > 500:  # Filtrar pequeños contornos por área
                 x, y, w, h = cv2.boundingRect(contour)
-                cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 255, 255), 2)
-                cv2.putText(frame, color, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (255, 255, 255), 2)
+                cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 255, 255), 2)  # Dibujar rectángulo alrededor del objeto detectado
+                cv2.putText(frame, color, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (255, 255, 255), 2)  # Poner texto con el nombre del color detectado
     return frame
 
+# Generar frames de video con detección de color
 def gen_frames():
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(0)  # Iniciar captura de video
     while True:
-        success, frame = cap.read()
+        success, frame = cap.read()  # Leer frame de la cámara
         if not success:
             break
         else:
-            frame = detectar_color(frame)
-            ret, buffer = cv2.imencode('.jpg', frame)
-            frame = buffer.tobytes()
+            frame = detectar_color(frame)  # Detectar colores en el frame
+            ret, buffer = cv2.imencode('.jpg', frame)  # Codificar frame en formato JPEG
+            frame = buffer.tobytes()  # Convertir frame a bytes
             yield (b'--frame\r\n'
-                   b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+                   b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')  # Enviar frame como respuesta
 
+# Ruta para la página principal
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html')  # Renderizar página HTML
 
+# Ruta para el streaming de video
 @app.route('/video_feed')
 def video_feed():
-    return Response(gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
+    return Response(gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')  # Streaming de video con detección de colores
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)  # Ejecutar la aplicación Flask
