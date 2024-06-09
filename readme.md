@@ -1,43 +1,48 @@
-# Detección de Colores en Tiempo Real
+# Real-time Color Detection
 
-Este proyecto, creado por Jr Santiago Ravelo, utiliza Flask y OpenCV para detectar colores en tiempo real a través de la cámara web. El software detecta varios colores en un flujo de video en tiempo real y dibuja rectángulos alrededor de los objetos detectados, etiquetándolos con su color correspondiente.
+This project, created by Jr Santiago Ravelo, uses Flask and OpenCV to detect colors in real-time through the webcam. The software detects various colors in a video stream and draws rectangles around the detected objects, labeling them with their corresponding color.
 
-## Requisitos
+## Note about Language
+
+- 'main' : English
+- 'spanish' : Spanish
+
+## Requirements
 
 - Python 3.x
 - Flask
 - OpenCV
 - NumPy
 
-## Instalación
+## Installation
 
-1. **Clona el repositorio:**
+1. **Clone the repository:**
 
     ```sh
-    git clone <URL_DEL_REPOSITORIO>
-    cd <NOMBRE_DEL_REPOSITORIO>
+    git clone https://github.com/JunniorRavelo/color-detector.git
+    cd color-detector
     ```
 
-2. **Crea un entorno virtual:**
+2. **Create a virtual environment:**
 
     ```sh
     python -m venv env_colors
     ```
 
-3. **Activa el entorno virtual:**
+3. **Activate the virtual environment:**
 
-    - En Windows:
+    - On Windows:
         ```sh
         .\env_colors\Scripts\activate
         ```
-    - En macOS y Linux:
+    - On macOS and Linux:
         ```sh
         source env_colors/bin/activate
         ```
 
-4. **Instala las dependencias:**
+4. **Install the dependencies:**
 
-    Asegúrate de tener un archivo `requirements.txt` con las siguientes dependencias:
+    Make sure you have a `requirements.txt` file with the following dependencies:
 
     ```txt
     blinker==1.8.2
@@ -52,36 +57,24 @@ Este proyecto, creado por Jr Santiago Ravelo, utiliza Flask y OpenCV para detect
     Werkzeug==3.0.3
     ```
 
-    Luego, instala las dependencias:
+    Then, install the dependencies:
 
     ```sh
     pip install -r requirements.txt
     ```
 
-## Uso
+## Usage
 
-### Versión Web
+### Web Version
 
-1. **Ejecuta la aplicación Flask:**
+1. **Run the Flask application:**
 
     ```sh
     python app.py
     ```
 
-2. **Abre tu navegador web y ve a `http://0.0.0.0:5000` para ver la detección de colores en tiempo real.**
+2. **Open your web browser and go to `http://0.0.0.0:5000` to see the real-time color detection.**
 
-### Versión de Escritorio
+### Desktop Version
 
-Para la versión de escritorio, puedes adaptar el código para usar OpenCV y mostrar la salida directamente en una ventana usando las funciones de OpenCV.
-
-## Estructura del Proyecto
-
-```plaintext
-├── app.py
-├── templates
-│   └── index.html
-├── static
-│   └── js
-│       └── script.js
-├── requirements.txt
-└── README.md
+For the desktop version, it's located in desktop\desktop.py, which does not use Flask.
