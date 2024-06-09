@@ -2,6 +2,10 @@
 
 Este proyecto, creado por Jr Santiago Ravelo, utiliza Flask y OpenCV para detectar colores en tiempo real a través de la cámara web. El software detecta varios colores en un flujo de video y dibuja rectángulos alrededor de los objetos detectados, etiquetándolos con su color correspondiente.
 
+## Nota : Idioma
+'main' : Ingles
+'spanish' : Español
+
 ## Requisitos
 
 - Python 3.x
